@@ -11,18 +11,6 @@ let
     clang8 = overrideCC stdenv clang_8;
   };
 
-  pocoLibs = {
-    poco190 = pkgs.poco;
-    poco191 = pkgs.poco.overrideAttrs (oldAttrs: {
-      name = "poco-1.9.1";
-      src = pkgs.fetchgit {
-        url = "https://github.com/pocoproject/poco.git";
-        rev = "196540ce34bf884921ff3f9ce338e38fc938acdd";
-        sha256 = "0q0xihkm2z8kndx40150inq7llcyny59cv016gxsx0vbzzbdkcnd";
-      };
-    });
-  };
-
   boostLibs = {
     inherit (pkgs) boost166 boost167 boost168 boost169;
   };
@@ -39,7 +27,6 @@ let
 
   overrides = [
     (f "stdenv" compilers)
-    (f "poco"   pocoLibs)
     (f "boost"  boostLibs)
   ];
 in
