@@ -7,12 +7,9 @@ let
   compilers = with pkgs; {
     gcc7 = stdenv;
     gcc8 = overrideCC stdenv gcc8;
+    clang5 = overrideCC stdenv clang_5;
+    clang6 = overrideCC stdenv clang_6;
     clang7 = overrideCC stdenv clang_7;
-    clang8 = overrideCC stdenv clang_8;
-  };
-
-  boostLibs = {
-    inherit (pkgs) boost166 boost167 boost168 boost169;
   };
 
   originalDerivation = [ (pkgs.callPackage (import ./derivation.nix) {}) ];
@@ -27,7 +24,6 @@ let
 
   overrides = [
     (f "stdenv" compilers)
-    (f "boost"  boostLibs)
   ];
 in
   pkgs.lib.foldl (a: b: a // { "${b.name}" = b; }) {} (

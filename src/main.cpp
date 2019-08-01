@@ -1,5 +1,3 @@
-#include <boost/lexical_cast.hpp>
-
 #include <iostream>
 
 #if defined(__clang__)
@@ -12,8 +10,5 @@
 
 int main() {
   std::cout << "Hello World!\n"
-    << "Compiler: " << CC << " " << __VERSION__ << '\n'
-    << "Boost: " << (BOOST_VERSION / 100000) << '.'
-                 << (BOOST_VERSION / 100 % 1000) << '.'
-                 << (BOOST_VERSION % 100) << '\n';
+    << "Compiler: " << CC << " " << __VERSION__ << '\n';
 }
