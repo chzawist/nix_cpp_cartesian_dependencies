@@ -2,13 +2,9 @@
 with stdenv.lib;
 
 stdenv.mkDerivation rec {
-  name = "asdf";
+  name = "tinycc";
 
-  src = fetchFromRepoOrCz {
-    repo = "tinycc";
-    rev = "release_0_9_27";
-    sha256 = "12mm1lqywz0akr2yb2axjfbw8lwv57nh395vzsk534riz03ml977";
-  };
+  src = ./src;
 
   nativeBuildInputs = [ perl texinfo ];
 
