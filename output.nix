@@ -1,5 +1,5 @@
 {
-  nixpkgs ? import ./nixpkgs.nix,
+  nixpkgs ? <nixpkgs>,
   pkgs ? import nixpkgs {},
   passthroughDerivations ? true
 }:
